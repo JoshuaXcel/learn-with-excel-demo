@@ -1,7 +1,7 @@
 /* Learn with Excel demo v3 service worker.
-   App files: network first (testers always get the newest build), cached for offline.
+   App files (index.html included): network first, never stale-first (testers always get the newest build), cached for offline.
    Pyodide from the CDN (only loaded if a learner's code needs full Python): cache first. */
-var APP = "lwe-demo-v3-1", PY = "lwe-python-0.27.8";
+var APP = "lwe-demo-v3-2", PY = "lwe-python-0.27.8";
 self.addEventListener("install", function () { self.skipWaiting(); });
 self.addEventListener("activate", function (e) {
   e.waitUntil(caches.keys().then(function (keys) {
@@ -19,6 +19,8 @@ self.addEventListener("fetch", function (e) {
     return;
   }
   if (url.origin === self.location.origin) {
+    /* network first for everything (index.html included), so an old cached copy can never trap a tester;
+       the cache is only an offline fallback */
     e.respondWith(fetch(req).then(function (res) {
       if (res.ok) { var copy = res.clone(); caches.open(APP).then(function (c) { c.put(req, copy); }); }
       return res;

@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="preload" href="fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/app.css?v=3.2">
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -28,11 +28,62 @@
   <span class="test-pill">Test</span>
   <button class="fb-btn" data-act="feedback" type="button" id="fbBtn"></button>
 </header>
-<main id="main" class="main" tabindex="-1"><div class="boot">Loading…</div></main>
-<noscript><p style="padding:20px">This app needs JavaScript turned on.</p></noscript>
-<script src="js/icons.js"></script>
-<script src="js/minipy.js"></script>
-<script src="js/engine.js"></script>
-<script src="js/app.js"></script>
+<main id="main" class="main" tabindex="-1"><div class="boot" id="boot"><p>Loading…</p><p class="boot-help" style="font-size:14px;margin-top:18px;line-height:1.5">Stuck here? Open this page in Chrome or Safari.<br>Backup link: <span style="word-break:break-all">https://learnwithexcel.sites.tab.bot/</span></p></div></main>
+<noscript><div style="padding:20px;font-size:16px;line-height:1.5"><p><b>This app needs JavaScript.</b></p><p>Using Opera Mini? Turn off data savings (or "Extreme" mode), or open the link in Chrome.</p><p>Link: <span style="word-break:break-all">https://joshuaxcel.github.io/learn-with-excel-demo/</span></p><p>Backup link: <span style="word-break:break-all">https://learnwithexcel.sites.tab.bot/</span></p></div></noscript>
+<script>
+/* Boot watchdog (plain ES3/ES5, runs before the app). If the app has not rendered
+   within 8 s, or a script error happens during boot, show a friendly way out. */
+(function () {
+  var shown = false, GH = "https://joshuaxcel.github.io/learn-with-excel-demo/", BK = "https://learnwithexcel.sites.tab.bot/";
+  window.LWE_BOOTED = false;
+  function here() { var u = String(location.href).split("#")[0].split("?")[0]; return u || GH; }
+  function copy(t, btn) {
+    var ok = false;
+    try {
+      var ta = document.createElement("textarea"); ta.value = t; ta.setAttribute("readonly", "");
+      ta.style.position = "fixed"; ta.style.top = "-1000px"; document.body.appendChild(ta);
+      ta.select(); try { ta.setSelectionRange(0, t.length); } catch (e) {}
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      ta.parentNode.removeChild(ta);
+    } catch (e) {}
+    if (!ok) { try { if (navigator.clipboard) { navigator.clipboard.writeText(t); ok = true; } } catch (e) {} }
+    btn.innerHTML = ok ? "Copied!" : "Press and hold the link to copy";
+  }
+  function show(why) {
+    if (shown || window.LWE_BOOTED) return;
+    var m = document.getElementById("main"); if (!m) return;
+    shown = true;
+    var u = here(), other = u.indexOf("sites.tab.bot") > -1 ? GH : BK;
+    var b = "display:inline-block;margin:6px 0;padding:12px 18px;font-size:16px;font-weight:700;border:0;border-radius:4px;background:#1D5BFF;color:#fff";
+    m.innerHTML = '<div style="padding:24px 18px;max-width:480px;margin:0 auto;font-size:16px;line-height:1.5;color:inherit">' +
+      '<h2 style="margin:0 0 10px">Not loading?</h2>' +
+      '<p>Open this link in Chrome or Safari:</p>' +
+      '<p style="word-break:break-all;font-weight:700" id="wdUrl">' + u + '</p>' +
+      '<button type="button" id="wdCopy" style="' + b + '">Copy link</button>' +
+      '<p style="margin-top:16px">Still not working? Try the backup link:<br><a style="word-break:break-all" href="' + other + '">' + other + '</a></p>' +
+      '<p style="margin-top:16px;font-size:14px;opacity:.85">Using Opera Mini? Turn off data savings (or "Extreme" mode) in its settings, or open the link in Chrome.</p>' +
+      '<p style="margin-top:16px"><button type="button" id="wdReload" style="' + b + ';background:#06163A">Try again</button></p>' +
+      '</div>';
+    try {
+      document.getElementById("wdCopy").onclick = function () { copy(u, this); };
+      document.getElementById("wdReload").onclick = function () { location.reload(); };
+    } catch (e) {}
+    window.LWE_WATCHDOG = why || "timeout";
+  }
+  window.LWE_SHOW_HELP = show;
+  var prev = window.onerror;
+  window.onerror = function (msg) {
+    if (!window.LWE_BOOTED) setTimeout(function () { show("error: " + msg); }, 50);
+    if (prev) { try { return prev.apply(this, arguments); } catch (e) {} }
+    return false;
+  };
+  setTimeout(function () { show("timeout"); }, 8000);
+})();
+</script>
+<script src="js/content.js?v=3.2"></script>
+<script src="js/icons.js?v=3.2"></script>
+<script src="js/minipy.js?v=3.2"></script>
+<script src="js/engine.js?v=3.2"></script>
+<script src="js/app.js?v=3.2"></script>
 </body>
 </html>

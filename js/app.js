@@ -2,16 +2,19 @@
    Content: content/*.json. Engine: js/engine.js. Instant Python subset: js/minipy.js, real Python: Pyodide (lazy). */
 (function () {
   "use strict";
+  /* tiny polyfills for old Android WebViews */
+  if (window.Element && !Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+  if (window.Element && !Element.prototype.closest) Element.prototype.closest = function (s) { var el = this; while (el && el.nodeType === 1) { if (el.matches(s)) return el; el = el.parentNode; } return null; };
   var WA_NUMBER = "2349064519858";
   var APP_VERSION = "demo-v3";
   var K = "lwe3.";
   var MASCOT = { // the ONLY place emojis are used: the mascot's reaction faces
-    happy: { img: "icons/mascot-happy.svg", emo: "\u{1F604}" },
-    celebrate: { img: "icons/mascot-celebrate.svg", emo: "\u{1F389}" },
-    oops: { img: "icons/mascot-oops.svg", emo: "\u{1F914}" },
-    sad: { img: "icons/mascot-sad.svg", emo: "\u{1F615}" },
-    thinking: { img: "icons/mascot-thinking.svg", emo: "\u{1F9D0}" },
-    wave: { img: "icons/mascot-wave.svg", emo: "\u{1F44B}" }
+    happy: { img: "icons/mascot-happy.svg", emo: "\uD83D\uDE04" },
+    celebrate: { img: "icons/mascot-celebrate.svg", emo: "\uD83C\uDF89" },
+    oops: { img: "icons/mascot-oops.svg", emo: "\uD83E\uDD14" },
+    sad: { img: "icons/mascot-sad.svg", emo: "\uD83D\uDE15" },
+    thinking: { img: "icons/mascot-thinking.svg", emo: "\uD83E\uDDD0" },
+    wave: { img: "icons/mascot-wave.svg", emo: "\uD83D\uDC4B" }
   };
 
   /* ---------- storage ---------- */
@@ -130,15 +133,29 @@
 
   /* ---------- content ---------- */
   var COURSE = null, CAT = null, LESSONS = {}, ALL_ITEMS = [];
-  function loadContent() {
+  function useContent(course, cat, ls) {
+    COURSE = course; CAT = cat.misconceptions; LESSONS = {}; ALL_ITEMS = [];
+    for (var i = 0; i < ls.length; i++) { var L = ls[i]; LESSONS[L.id] = L; for (var j = 0; j < L.slots.length; j++) ALL_ITEMS = ALL_ITEMS.concat(L.slots[j].candidates); }
+  }
+  /* Bundled content (js/content.js) first: no fetch, no Promise needed at boot.
+     Falls back to fetching the JSON files only if the bundle is missing. */
+  function loadContent(ok, fail) {
+    var B = window.LWE_CONTENT;
+    if (B && B.course && B.catalogue && B.lessons) {
+      try {
+        var ids = []; B.course.units.forEach(function (u) { ids = ids.concat(u.lessons); });
+        var ls = ids.map(function (id) { if (!B.lessons[id]) throw new Error("missing lesson " + id); return B.lessons[id]; });
+        useContent(B.course, B.catalogue, ls); ok(); return;
+      } catch (e) { /* fall through to fetch */ }
+    }
+    if (typeof window.fetch !== "function" || typeof Promise === "undefined") { fail(new Error("lessons not bundled and this browser can't fetch them")); return; }
     function j(u) { return fetch(u, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(u + " " + r.status); return r.json(); }); }
-    return Promise.all([j("content/course.json"), j("content/catalogue.json")]).then(function (a) {
-      COURSE = a[0]; CAT = a[1].misconceptions;
-      var ids = []; COURSE.units.forEach(function (u) { ids = ids.concat(u.lessons); });
+    var course0, cat0;
+    Promise.all([j("content/course.json"), j("content/catalogue.json")]).then(function (a) {
+      course0 = a[0]; cat0 = a[1];
+      var ids = []; course0.units.forEach(function (u) { ids = ids.concat(u.lessons); });
       return Promise.all(ids.map(function (id) { return j("content/lessons/" + id + ".json"); }));
-    }).then(function (ls) {
-      ls.forEach(function (L) { LESSONS[L.id] = L; L.slots.forEach(function (s) { ALL_ITEMS = ALL_ITEMS.concat(s.candidates); }); });
-    });
+    }).then(function (ls) { useContent(course0, cat0, ls); ok(); }, fail);
   }
   function lessonOrder() { var a = []; COURSE.units.forEach(function (u) { u.lessons.forEach(function (l) { a.push(l); }); }); return a; }
   function lessonNo(id) { return lessonOrder().indexOf(id) + 1; }
@@ -212,7 +229,7 @@
       '<button class="btn btn-sec wide" id="resetAll">Reset this phone (testing)</button>';
     render(html);
     document.getElementById("chAge").onclick = function () { log("age_reset", { from: ST.age }); ST.age = null; ST.mode = null; saveST(); ageScreen(); };
-    var ra = document.getElementById("resetAll"); if (ra) ra.onclick = function () { if (confirm("Erase all test data on this phone?")) { Object.keys(localStorage).forEach(function (k) { if (k.indexOf(K) === 0) localStorage.removeItem(k); }); location.reload(); } };
+    var ra = document.getElementById("resetAll"); if (ra) ra.onclick = function () { if (confirm("Erase all test data on this phone?")) { try { Object.keys(localStorage).forEach(function (k) { if (k.indexOf(K) === 0) localStorage.removeItem(k); }); } catch (e) {} location.reload(); } };
     Array.prototype.forEach.call($main.querySelectorAll("[data-start]"), function (b) { b.onclick = function () { startLesson(b.getAttribute("data-start")); }; });
   }
 
@@ -599,11 +616,17 @@
     sync();
   }
   function copyText(t) {
-    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t);
-    return new Promise(function (res, rej) {
-      var ta = document.createElement("textarea"); ta.value = t; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.top = "-1000px"; document.body.appendChild(ta);
-      ta.select(); ta.setSelectionRange(0, t.length); var ok = false; try { ok = document.execCommand("copy"); } catch (e) {} ta.remove(); ok ? res() : rej();
-    });
+    /* returns a thenable; works without Promise / clipboard API (old WebViews) */
+    function legacy() {
+      var ok = false;
+      try {
+        var ta = document.createElement("textarea"); ta.value = t; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.top = "-1000px"; document.body.appendChild(ta);
+        ta.select(); try { ta.setSelectionRange(0, t.length); } catch (e) {} try { ok = document.execCommand("copy"); } catch (e) {} ta.parentNode.removeChild(ta);
+      } catch (e) {}
+      return { then: function (res, rej) { if (ok) { if (res) res(); } else if (rej) rej(); } };
+    }
+    try { if (navigator.clipboard && window.isSecureContext && typeof Promise !== "undefined") return navigator.clipboard.writeText(t); } catch (e) {}
+    return legacy();
   }
 
   /* expose for tests (read-only helpers) */
@@ -612,10 +635,12 @@
   /* ---------- boot ---------- */
   window.addEventListener("pagehide", function () { tick(); if (RUN) log("pagehide_in_lesson", { l: RUN.L.id, step: RUN.i + 1, item: RUN.cur && RUN.cur.it.id }); });
   log("session_start", { app: APP_VERSION, w: window.innerWidth, sw: window.screen ? screen.width : null, age: ST.age || undefined });
-  loadContent().then(function () {
+  loadContent(function () {
     if (!ST.mode) ageScreen(); else home();
+    window.LWE_BOOTED = true;
   }, function (e) {
-    $main.innerHTML = '<div class="card"><h2>Couldn\'t load the lessons</h2><p>Check your connection and reload the page.</p><p class="small muted">' + esc(e.message) + "</p></div>";
+    window.LWE_BOOTED = true;
+    $main.innerHTML = '<div class="card"><h2>Couldn\'t load the lessons</h2><p>Check your connection and reload the page.</p><p class="small muted">' + esc(e && e.message || String(e)) + "</p></div>";
   });
-  if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(function () {});
+  try { if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js")["catch"](function () {}); } catch (e) {}
 })();

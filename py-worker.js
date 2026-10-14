@@ -40,29 +40,32 @@ var HARNESS = [
 "    return json.dumps({'display': ''.join(out.disp), 'judge': ''.join(out.judge), 'error': err})"
 ].join("\n");
 
-async function boot() {
+function boot() {
+  /* plain ES5 (no async/await) so this file parses everywhere */
   importScripts(PYODIDE_URL + "pyodide.js");
-  pyodide = await loadPyodide({ indexURL: PYODIDE_URL });
-  pyodide.runPython(HARNESS);
-  return pyodide.runPython("import sys; sys.version.split()[0]");
+  return loadPyodide({ indexURL: PYODIDE_URL }).then(function (py) {
+    pyodide = py;
+    pyodide.runPython(HARNESS);
+    return pyodide.runPython("import sys; sys.version.split()[0]");
+  });
 }
 var ready = null;
-self.onmessage = async function (ev) {
+self.onmessage = function (ev) {
   var d = ev.data;
+  function fail(err) { self.postMessage({ id: d.id, ok: false, error: String(err && err.message || err) }); }
   try {
+    if (!ready) ready = boot();
     if (d.cmd === "init") {
-      if (!ready) ready = boot();
-      var ver = await ready;
-      self.postMessage({ id: d.id, ok: true, version: ver });
+      ready.then(function (ver) { self.postMessage({ id: d.id, ok: true, version: ver }); }, fail);
     } else if (d.cmd === "run") {
-      if (!ready) ready = boot();
-      await ready;
-      var fn = pyodide.globals.get("_lwe_run");
-      var res = fn(d.code, pyodide.toPy(d.inputs || []));
-      fn.destroy();
-      self.postMessage({ id: d.id, ok: true, result: JSON.parse(res) });
+      ready.then(function () {
+        try {
+          var fn = pyodide.globals.get("_lwe_run");
+          var res = fn(d.code, pyodide.toPy(d.inputs || []));
+          fn.destroy();
+          self.postMessage({ id: d.id, ok: true, result: JSON.parse(res) });
+        } catch (err) { fail(err); }
+      }, function (err) { ready = null; fail(err); });
     }
-  } catch (err) {
-    self.postMessage({ id: d.id, ok: false, error: String(err && err.message || err) });
-  }
+  } catch (err) { ready = null; fail(err); }
 };

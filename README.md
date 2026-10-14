@@ -2,6 +2,8 @@
 
 **Try it:** https://joshuaxcel.github.io/learn-with-excel-demo/
 
+> **If github.io doesn't open on your network, use https://learnwithexcel.sites.tab.bot/**
+
 Learn with Excel is a game-like app that teaches Python to complete beginners, with a Kids mode (ages 8–13) and an Adults mode (14+). This repo is a small **test build**: two short lessons, made to find out where real beginners get stuck before the backend is built.
 
 ## What's in it
@@ -37,3 +39,12 @@ Then open http://localhost:8000. All paths are relative, so it works from any fo
 Add `?debug=1` to the URL to see the engine's state and a button that resets this phone's test data.
 
 Early test build: content and engine numbers are estimates and will change.
+
+
+## Content bundle
+The app boots from `js/content.js` (generated, no network fetch needed). After editing any file in `content/`, run:
+
+```
+python3 tools/build_content.py
+python3 tools/validate_content.py
+```
