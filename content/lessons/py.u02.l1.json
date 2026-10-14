@@ -1,0 +1,1035 @@
+{
+ "id": "py.u02.l1",
+ "unit": "py.u02",
+ "title": "Name tags",
+ "kids_title": "Name tags",
+ "skills": [
+  "py.u02.assign",
+  "py.u02.reassign"
+ ],
+ "needs": [
+  "py.u01.print",
+  "py.u01.strings"
+ ],
+ "summary": "A variable is a name tag: = sticks the name on a value, a new = moves it, and print(name) shows the value it's on.",
+ "kids_summary": "A variable is a name tag. = sticks it on a value, and you can move it to a new value any time.",
+ "slots": [
+  {
+   "slot": "s01",
+   "beat": "learn",
+   "candidates": [
+    {
+     "id": "py.u02.l1.s01.a",
+     "version": 1,
+     "course": "py",
+     "type": "worked",
+     "skill": "py.u02.assign",
+     "level": 1,
+     "d0": -2.0,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "print",
+      "string",
+      "comment"
+     ],
+     "prompt": "Meet variables",
+     "code": "# Step 1: choose a name\n# Step 2: use = to stick the name on a value\ncolor = \"blue\"\n# Step 3: use the name instead of the value\nprint(color)",
+     "body": {
+      "text": "A variable is a name for a value. color = \"blue\" sticks the name color on the text \"blue\". print(color) has no quotes around color, so Python shows the value. Tap Run.",
+      "highlight": "print(color)"
+     },
+     "hints": [],
+     "kids": {
+      "prompt": "Meet name tags",
+      "body": {
+       "text": "color = \"blue\" sticks a name tag called color on \"blue\". Then print(color) shows what the tag is stuck on. Tap Run!",
+       "highlight": "print(color)"
+      }
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u02.l1.s01.b",
+     "version": 1,
+     "course": "py",
+     "type": "worked",
+     "skill": "py.u02.assign",
+     "level": 1,
+     "d0": -1.4,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "print",
+      "string",
+      "comment"
+     ],
+     "prompt": "Two variables",
+     "code": "# Two names, two values\nanimal = \"cat\"\nsound = \"meow\"\n# print uses the names, no quotes\nprint(animal)\nprint(sound)",
+     "body": {
+      "text": "You can make as many variables as you like. Each name is stuck on its own value. print(animal) shows the value of animal. Tap Run.",
+      "highlight": "print(animal)"
+     },
+     "hints": [],
+     "kids": {
+      "prompt": "Two name tags",
+      "body": {
+       "text": "Here are two name tags: animal and sound. print shows what each one is stuck on. Tap Run!",
+       "highlight": "print(animal)"
+      }
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s02",
+   "beat": "learn",
+   "candidates": [
+    {
+     "id": "py.u02.l1.s02.a",
+     "version": 1,
+     "course": "py",
+     "type": "analogy",
+     "skill": "py.u02.assign",
+     "level": 1,
+     "d0": -1.8,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign"
+     ],
+     "prompt": "A variable is a name tag",
+     "body": {
+      "card": "A variable is a name tag stuck on a value. score = 10 sticks the tag score on 10.",
+      "breaks": "A real name tag is on one thing, but one value can carry many tags at once."
+     },
+     "hints": [],
+     "kids": {
+      "body": {
+       "card": "A variable is a name tag. score = 10 sticks the tag score on the number 10.",
+       "breaks": "Unlike a real sticker, you can peel the tag off and stick it on something new any time."
+      }
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u02.l1.s02.b",
+     "version": 1,
+     "course": "py",
+     "type": "analogy",
+     "skill": "py.u02.assign",
+     "level": 1,
+     "d0": -1.2,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "reassign"
+     ],
+     "prompt": "Tags, not boxes",
+     "body": {
+      "card": "Think of a variable as a label pointing at a value, not a box holding it. When you write the name again with =, the label moves to the new value.",
+      "breaks": "Labels don't wear out: Python lets you move a name as often as you like."
+     },
+     "hints": [],
+     "kids": {
+      "prompt": "Tags, not boxes",
+      "body": {
+       "card": "A variable is a label that points at a value. Use = again and the label jumps to the new value.",
+       "breaks": "You can move a label as many times as you want."
+      }
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s03",
+   "beat": "predict",
+   "candidates": [
+    {
+     "id": "py.u02.l1.s03.a",
+     "version": 1,
+     "course": "py",
+     "type": "predict",
+     "skill": "py.u02.assign",
+     "level": 2,
+     "d0": -1.3,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "print"
+     ],
+     "prompt": "What does this show?",
+     "code": "score = 10\nprint(score)",
+     "body": {
+      "options": [
+       {
+        "text": "10",
+        "correct": true,
+        "feedback": "print follows the tag to its value."
+       },
+       {
+        "text": "score",
+        "tag": "mc.var.name_vs_value",
+        "hint": "Compare with print(\"score\")."
+       },
+       {
+        "text": "score = 10",
+        "tag": "mc.var.prints_statement"
+       },
+       {
+        "text": "An error",
+        "tag": "mc.var.needs_declaration"
+       }
+      ],
+      "output_options": true,
+      "run_after": true
+     },
+     "hints": [
+      "Is score in quotes inside print?"
+     ],
+     "explain": "No quotes, so it's the name: Python shows its value.",
+     "kids": {
+      "prompt": "What will Python say?"
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u02.l1.s03.b",
+     "version": 1,
+     "course": "py",
+     "type": "predict",
+     "skill": "py.u02.assign",
+     "level": 2,
+     "d0": -0.6,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "print",
+      "string"
+     ],
+     "prompt": "What does this show?",
+     "code": "fruit = \"apple\"\nprint(\"fruit\")",
+     "body": {
+      "options": [
+       {
+        "text": "fruit",
+        "correct": true,
+        "feedback": "Right: in quotes it's just the word fruit."
+       },
+       {
+        "text": "apple",
+        "tag": "mc.var.name_vs_value",
+        "hint": "Look at the quotes inside print."
+       },
+       {
+        "text": "\"apple\"",
+        "tag": "mc.str.quotes_shown"
+       },
+       {
+        "text": "fruit = apple",
+        "tag": "mc.var.prints_statement"
+       }
+      ],
+      "output_options": true,
+      "run_after": true
+     },
+     "hints": [
+      "Quotes make text. Is fruit in quotes here?"
+     ],
+     "explain": "In quotes it's text, so Python shows the word, not the variable's value.",
+     "kids": {
+      "prompt": "What will Python say?"
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s04",
+   "beat": "predict",
+   "candidates": [
+    {
+     "id": "py.u02.l1.s04.a",
+     "version": 1,
+     "course": "py",
+     "type": "predict",
+     "skill": "py.u02.reassign",
+     "level": 2,
+     "d0": -1.0,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "reassign",
+      "print"
+     ],
+     "prompt": "What does this show?",
+     "code": "score = 10\nscore = 15\nprint(score)",
+     "body": {
+      "options": [
+       {
+        "text": "15",
+        "correct": true,
+        "feedback": "The tag moved to 15."
+       },
+       {
+        "text": "10",
+        "tag": "mc.var.first_value_sticks",
+        "hint": "What does line 2 do to the tag?"
+       },
+       {
+        "text": "10 15",
+        "tag": "mc.var.holds_history"
+       },
+       {
+        "text": "25",
+        "tag": "mc.var.assign_adds",
+        "hint": "Is there anything here that adds?"
+       }
+      ],
+      "output_options": true,
+      "run_after": true
+     },
+     "hints": [
+      "Line 2 moves the tag."
+     ],
+     "explain": "The second = moves the tag to 15.",
+     "kids": {
+      "prompt": "What will Python say?"
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u02.l1.s04.b",
+     "version": 1,
+     "course": "py",
+     "type": "predict",
+     "skill": "py.u02.reassign",
+     "level": 2,
+     "d0": -0.4,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "reassign",
+      "print"
+     ],
+     "prompt": "What does this show?",
+     "code": "pet = \"cat\"\npet = \"dog\"\npet = \"fish\"\nprint(pet)",
+     "body": {
+      "options": [
+       {
+        "text": "fish",
+        "correct": true,
+        "feedback": "The tag moved twice and ended on fish."
+       },
+       {
+        "text": "cat",
+        "tag": "mc.var.first_value_sticks"
+       },
+       {
+        "text": "cat dog fish",
+        "tag": "mc.var.holds_history"
+       },
+       {
+        "text": "catdogfish",
+        "tag": "mc.var.assign_adds"
+       }
+      ],
+      "output_options": true,
+      "run_after": true
+     },
+     "hints": [
+      "Where is the tag after the last line?"
+     ],
+     "explain": "Each = moves the tag; only the last value counts.",
+     "kids": {
+      "prompt": "What will Python say?"
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s05",
+   "beat": "investigate",
+   "candidates": [
+    {
+     "id": "py.u02.l1.s05.a",
+     "version": 1,
+     "course": "py",
+     "type": "trace",
+     "skill": "py.u02.reassign",
+     "level": 2,
+     "d0": -0.8,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "reassign",
+      "order"
+     ],
+     "prompt": "Trace it: what is x after each line?",
+     "code": "x = \"red\"\nx = \"green\"\nx = \"blue\"",
+     "body": {
+      "options": [
+       {
+        "text": "red, then green, then blue",
+        "correct": true,
+        "feedback": "Each line moves the tag to a new value."
+       },
+       {
+        "text": "red, then red, then red",
+        "tag": "mc.var.first_value_sticks"
+       },
+       {
+        "text": "red, then red green, then red green blue",
+        "tag": "mc.var.holds_history"
+       },
+       {
+        "text": "blue, then blue, then blue",
+        "tag": "mc.order.any_order",
+        "hint": "Python runs one line at a time."
+       }
+      ]
+     },
+     "hints": [
+      "Go one line at a time. Where is the tag after line 1?"
+     ],
+     "explain": "One line at a time, the tag moves: red, green, blue.",
+     "kids": {
+      "prompt": "Follow the tag: what is x after each line?"
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u02.l1.s05.b",
+     "version": 1,
+     "course": "py",
+     "type": "trace",
+     "skill": "py.u02.reassign",
+     "level": 3,
+     "d0": -0.1,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "reassign",
+      "print"
+     ],
+     "prompt": "Trace it: what does this show?",
+     "code": "x = \"sun\"\ny = \"moon\"\nx = y\nprint(x)",
+     "body": {
+      "options": [
+       {
+        "text": "moon",
+        "correct": true,
+        "feedback": "x = y sticks x on y's value, moon."
+       },
+       {
+        "text": "sun",
+        "tag": "mc.var.first_value_sticks"
+       },
+       {
+        "text": "y",
+        "tag": "mc.var.name_vs_value"
+       },
+       {
+        "text": "sun moon",
+        "tag": "mc.var.holds_history"
+       }
+      ],
+      "output_options": true,
+      "run_after": true
+     },
+     "hints": [
+      "What is y stuck on when line 3 runs?"
+     ],
+     "explain": "Line 3 moves x onto the value y is stuck on.",
+     "kids": {
+      "prompt": "Follow the tags: what will Python say?"
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s06",
+   "beat": "investigate",
+   "candidates": [
+    {
+     "id": "py.u02.l1.s06.a",
+     "version": 1,
+     "course": "py",
+     "type": "predict",
+     "skill": "py.u02.reassign",
+     "level": 3,
+     "d0": -0.5,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "reassign",
+      "print"
+     ],
+     "prompt": "What does this show?",
+     "code": "a = \"hi\"\nb = a\nprint(b)",
+     "body": {
+      "options": [
+       {
+        "text": "hi",
+        "correct": true,
+        "feedback": "b is stuck on the same value as a."
+       },
+       {
+        "text": "a",
+        "tag": "mc.var.name_vs_value"
+       },
+       {
+        "text": "An error",
+        "tag": "mc.var.needs_declaration"
+       },
+       {
+        "text": "\"hi\"",
+        "tag": "mc.str.quotes_shown"
+       }
+      ],
+      "output_options": true,
+      "run_after": true
+     },
+     "hints": [
+      "b = a: what is a stuck on?"
+     ],
+     "explain": "b = a sticks b on a's value.",
+     "kids": {
+      "prompt": "What will Python say?"
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u02.l1.s06.b",
+     "version": 1,
+     "course": "py",
+     "type": "predict",
+     "skill": "py.u02.reassign",
+     "level": 3,
+     "d0": 0.2,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "reassign",
+      "print"
+     ],
+     "prompt": "What does this show?",
+     "code": "a = 4\nb = a\na = 7\nprint(b)",
+     "body": {
+      "options": [
+       {
+        "text": "4",
+        "correct": true,
+        "feedback": "b was stuck on 4. Moving a's tag doesn't move b's."
+       },
+       {
+        "text": "7",
+        "tag": "mc.var.linked_names",
+        "hint": "Draw the tags after line 2."
+       },
+       {
+        "text": "4 7",
+        "tag": "mc.var.holds_history"
+       },
+       {
+        "text": "a",
+        "tag": "mc.var.name_vs_value"
+       }
+      ],
+      "output_options": true,
+      "run_after": true
+     },
+     "hints": [
+      "Draw the tags after line 2."
+     ],
+     "explain": "b got a's value at that moment, 4. Moving a later doesn't move b.",
+     "kids": {
+      "prompt": "What will Python say?"
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s07",
+   "beat": "investigate",
+   "candidates": [
+    {
+     "id": "py.u02.l1.s07.a",
+     "version": 1,
+     "course": "py",
+     "type": "read_error",
+     "skill": "py.u02.assign",
+     "level": 3,
+     "d0": -0.3,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "print",
+      "error_reading",
+      "case"
+     ],
+     "prompt": "Why does this fail?",
+     "code": "score = 10\nprint(Score)",
+     "body": {
+      "error": "NameError: name 'Score' is not defined. Did you mean: 'score'?",
+      "options": [
+       {
+        "text": "Score and score are different names",
+        "correct": true,
+        "feedback": "Capitals matter. Python even suggests the right name."
+       },
+       {
+        "text": "score must be in quotes",
+        "tag": "mc.var.quotes_around_name"
+       },
+       {
+        "text": "Variables can't be printed",
+        "tag": "mc.var.cannot_print"
+       },
+       {
+        "text": "Line 1 is wrong",
+        "tag": "mc.err.points_to_cause"
+       }
+      ]
+     },
+     "hints": [
+      "Read the end of the error message."
+     ],
+     "explain": "Capitals matter: Score is not score.",
+     "kids": {
+      "prompt": "Python is confused. Why?"
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u02.l1.s07.b",
+     "version": 1,
+     "course": "py",
+     "type": "read_error",
+     "skill": "py.u02.assign",
+     "level": 3,
+     "d0": 0.3,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "print",
+      "error_reading",
+      "order"
+     ],
+     "prompt": "Why does this fail?",
+     "code": "print(color)\ncolor = \"red\"",
+     "body": {
+      "error": "NameError: name 'color' is not defined",
+      "options": [
+       {
+        "text": "color is used before the line that makes it",
+        "correct": true,
+        "feedback": "Yes: lines run top to bottom, so make the tag first."
+       },
+       {
+        "text": "color must be in quotes",
+        "tag": "mc.var.quotes_around_name"
+       },
+       {
+        "text": "Variables can't be printed",
+        "tag": "mc.var.cannot_print"
+       },
+       {
+        "text": "red is not a real color name",
+        "tag": "mc.syn.natural_language"
+       }
+      ]
+     },
+     "hints": [
+      "Which line runs first?"
+     ],
+     "explain": "Lines run top to bottom: make the name, then use it.",
+     "kids": {
+      "prompt": "Python is confused. Why?"
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s08",
+   "beat": "modify",
+   "candidates": [
+    {
+     "id": "py.u02.l1.s08.a",
+     "version": 1,
+     "course": "py",
+     "type": "fill",
+     "skill": "py.u02.reassign",
+     "level": 3,
+     "d0": -0.2,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "reassign",
+      "print"
+     ],
+     "prompt": "Fill the blank so the code shows blue.",
+     "code": "color = \"red\"\ncolor ___ \"blue\"\nprint(color)",
+     "body": {
+      "bank": [
+       {
+        "text": "=",
+        "correct": true,
+        "feedback": "One = moves the tag to blue."
+       },
+       {
+        "text": ":",
+        "tag": "mc.syn.other_language"
+       },
+       {
+        "text": "to",
+        "tag": "mc.syn.natural_language"
+       }
+      ],
+      "expected_output": "blue"
+     },
+     "hints": [
+      "How did line 1 stick the tag on red?"
+     ],
+     "explain": "= moves the tag to the new value.",
+     "kids": {
+      "prompt": "Fill the gap so Python says blue."
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u02.l1.s08.b",
+     "version": 1,
+     "course": "py",
+     "type": "fill",
+     "skill": "py.u02.reassign",
+     "level": 3,
+     "d0": 0.3,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "reassign",
+      "print"
+     ],
+     "prompt": "Fill the blank so the code shows dog, using the variable.",
+     "code": "pet = \"cat\"\npet = \"dog\"\nprint(___)",
+     "body": {
+      "bank": [
+       {
+        "text": "pet",
+        "correct": true,
+        "feedback": "print(pet) follows the tag to dog."
+       },
+       {
+        "text": "\"pet\"",
+        "tag": "mc.var.name_vs_value"
+       },
+       {
+        "text": "\"cat\"",
+        "tag": "mc.var.first_value_sticks"
+       }
+      ],
+      "expected_output": "dog"
+     },
+     "hints": [
+      "Use the name, without quotes."
+     ],
+     "explain": "The tag pet is on dog now, so print(pet) shows dog.",
+     "kids": {
+      "prompt": "Fill the gap so Python says dog."
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s09",
+   "beat": "modify",
+   "candidates": [
+    {
+     "id": "py.u02.l1.s09.a",
+     "version": 1,
+     "course": "py",
+     "type": "fix",
+     "skill": "py.u02.assign",
+     "level": 4,
+     "d0": 0.1,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "print",
+      "string"
+     ],
+     "prompt": "Fix the bug so it shows Hello by using the variable.",
+     "code": "greeting = \"Hello\"\nprint(\"greeting\")",
+     "body": {
+      "expected_output": "Hello",
+      "solution": "greeting = \"Hello\"\nprint(greeting)",
+      "checks": [
+       {
+        "kind": "output"
+       },
+       {
+        "kind": "prints_name",
+        "name": "greeting"
+       },
+       {
+        "kind": "no_print_literal",
+        "text": "Hello"
+       }
+      ],
+      "error_tags": {
+       "NameError": "mc.str.missing_quotes",
+       "unterminated": "mc.str.unclosed_quote",
+       "Print": "mc.syn.case_insensitive",
+       "wrong_output": "mc.var.quotes_around_name",
+       "bypass": "mc.var.bypasses_variable"
+      }
+     },
+     "hints": [
+      "Quotes make text. Take them off to use the tag."
+     ],
+     "explain": "No quotes: now it's the name, so Python shows the value.",
+     "kids": {
+      "prompt": "Fix it so Python says Hello, using the name tag."
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u02.l1.s09.b",
+     "version": 1,
+     "course": "py",
+     "type": "fix",
+     "skill": "py.u02.assign",
+     "level": 4,
+     "d0": 0.5,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "print",
+      "case"
+     ],
+     "prompt": "Fix the bug so it shows panda.",
+     "code": "animal = \"panda\"\nprint(Animal)",
+     "body": {
+      "expected_output": "panda",
+      "solution": "animal = \"panda\"\nprint(animal)",
+      "checks": [
+       {
+        "kind": "output"
+       },
+       {
+        "kind": "prints_name",
+        "name": "animal"
+       }
+      ],
+      "error_tags": {
+       "NameError": "mc.syn.case_insensitive",
+       "unterminated": "mc.str.unclosed_quote",
+       "Print": "mc.syn.case_insensitive",
+       "bypass": "mc.var.bypasses_variable"
+      }
+     },
+     "hints": [
+      "Read the error: does Python suggest a name?",
+      "Capitals matter."
+     ],
+     "explain": "animal and Animal are different names; now they match.",
+     "kids": {
+      "prompt": "Fix it so Python says panda."
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s10",
+   "beat": "make",
+   "candidates": [
+    {
+     "id": "py.u02.l1.s10.a",
+     "version": 1,
+     "course": "py",
+     "type": "write",
+     "skill": "py.u02.assign",
+     "level": 5,
+     "d0": 0.2,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "print",
+      "string"
+     ],
+     "prompt": "Fill in the blank so the variable planet holds \"Mars\", then run it.",
+     "code": "planet = ___\nprint(planet)",
+     "body": {
+      "expected_output": "Mars",
+      "solution": "planet = \"Mars\"\nprint(planet)",
+      "checks": [
+       {
+        "kind": "output"
+       },
+       {
+        "kind": "prints_name",
+        "name": "planet"
+       }
+      ],
+      "error_tags": {
+       "NameError": "mc.str.missing_quotes",
+       "unterminated": "mc.str.unclosed_quote",
+       "Print": "mc.syn.case_insensitive"
+      }
+     },
+     "hints": [
+      "Replace ___ with the text Mars, in quotes."
+     ],
+     "explain": "You made a variable and printed its value.",
+     "kids": {
+      "prompt": "Replace ___ so the tag planet is stuck on \"Mars\"."
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u02.l1.s10.b",
+     "version": 1,
+     "course": "py",
+     "type": "write",
+     "skill": "py.u02.reassign",
+     "level": 5,
+     "d0": 0.8,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "variable",
+      "assign",
+      "reassign",
+      "print",
+      "string"
+     ],
+     "prompt": "Make a variable planet with the value \"Mars\" and print it. Then move the tag to \"Earth\" and print it again.",
+     "code": "",
+     "body": {
+      "expected_output": "Mars\nEarth",
+      "solution": "planet = \"Mars\"\nprint(planet)\nplanet = \"Earth\"\nprint(planet)",
+      "checks": [
+       {
+        "kind": "output"
+       },
+       {
+        "kind": "assign_count",
+        "name": "planet",
+        "n": 2
+       },
+       {
+        "kind": "no_print_literal",
+        "text": "Mars"
+       },
+       {
+        "kind": "no_print_literal",
+        "text": "Earth"
+       }
+      ],
+      "error_tags": {
+       "NameError": "mc.str.missing_quotes",
+       "unterminated": "mc.str.unclosed_quote",
+       "Print": "mc.syn.case_insensitive",
+       "bypass": "mc.var.bypasses_variable"
+      }
+     },
+     "hints": [
+      "Four lines: make, print, move, print.",
+      "Use print(planet), not print(\"Mars\")."
+     ],
+     "explain": "Make, print, move, print: that's variables.",
+     "kids": {
+      "prompt": "Make a tag planet on \"Mars\" and print it. Then move it to \"Earth\" and print it again."
+     },
+     "status": "published"
+    }
+   ]
+  }
+ ]
+}

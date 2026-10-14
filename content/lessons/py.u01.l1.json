@@ -1,0 +1,974 @@
+{
+ "id": "py.u01.l1",
+ "unit": "py.u01",
+ "title": "Talk to Python",
+ "kids_title": "Say hello to Python",
+ "skills": [
+  "py.u01.print",
+  "py.u01.strings"
+ ],
+ "needs": [],
+ "summary": "print shows text, one line per print, top to bottom, and quotes mark where text starts and ends.",
+ "kids_summary": "print makes Python talk. Quotes go around the words, and Python reads from top to bottom.",
+ "slots": [
+  {
+   "slot": "s01",
+   "beat": "learn",
+   "candidates": [
+    {
+     "id": "py.u01.l1.s01.a",
+     "version": 1,
+     "course": "py",
+     "type": "worked",
+     "skill": "py.u01.print",
+     "level": 1,
+     "d0": -2.4,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string",
+      "comment"
+     ],
+     "prompt": "Your first line of Python",
+     "code": "# Step 1: say what to do: print\n# Step 2: open and close brackets ( )\n# Step 3: put the message in quotes \" \"\nprint(\"Hello, world\")",
+     "body": {
+      "text": "print tells Python to show a message. The message goes inside quotes, and the quotes go inside the brackets. Tap Run to try it.",
+      "highlight": "\"Hello, world\""
+     },
+     "hints": [],
+     "kids": {
+      "prompt": "Make Python talk!",
+      "body": {
+       "text": "print makes Python say something. Put your words in quotes, inside the brackets. Tap Run!",
+       "highlight": "\"Hello, world\""
+      }
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u01.l1.s01.b",
+     "version": 1,
+     "course": "py",
+     "type": "worked",
+     "skill": "py.u01.print",
+     "level": 1,
+     "d0": -1.6,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string",
+      "comment",
+      "order"
+     ],
+     "prompt": "Two lines, top to bottom",
+     "code": "# Each print shows one line\n# Python runs them from the top down\nprint(\"Hello, world\")\nprint(\"I can code\")",
+     "body": {
+      "text": "print shows a message. With two prints you get two lines, and Python runs them in order, top to bottom. Tap Run.",
+      "highlight": "print"
+     },
+     "hints": [],
+     "kids": {
+      "prompt": "Two lines!",
+      "body": {
+       "text": "Each print makes one line. Python starts at the top and goes down. Tap Run!",
+       "highlight": "print"
+      }
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s02",
+   "beat": "learn",
+   "candidates": [
+    {
+     "id": "py.u01.l1.s02.a",
+     "version": 1,
+     "course": "py",
+     "type": "analogy",
+     "skill": "py.u01.print",
+     "level": 1,
+     "d0": -2.0,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "order"
+     ],
+     "prompt": "A program is a recipe",
+     "body": {
+      "card": "A program is a recipe. The computer follows each step exactly, in order, and literally.",
+      "breaks": "A cook can guess what you meant. Python never guesses, so a small typo stops it."
+     },
+     "hints": [],
+     "kids": {
+      "prompt": "A program is a recipe",
+      "body": {
+       "card": "A program is like a recipe. The computer does each step, one by one, from the top.",
+       "breaks": "A person can guess what you meant. Python can't guess, so every letter matters."
+      }
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u01.l1.s02.b",
+     "version": 1,
+     "course": "py",
+     "type": "analogy",
+     "skill": "py.u01.print",
+     "level": 1,
+     "d0": -1.4,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "order"
+     ],
+     "prompt": "Instructions for a robot",
+     "body": {
+      "card": "Code is a list of instructions for a very fast, very literal robot. It does exactly what each line says, one line after another.",
+      "breaks": "A robot in a film might ask what you meant. Python stops and shows an error instead."
+     },
+     "hints": [],
+     "kids": {
+      "prompt": "Bossing a robot around",
+      "body": {
+       "card": "Code is like giving orders to a robot. It does exactly what you say, one step at a time.",
+       "breaks": "If you spell an order wrong, the robot stops. Python does the same."
+      }
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s03",
+   "beat": "predict",
+   "candidates": [
+    {
+     "id": "py.u01.l1.s03.a",
+     "version": 1,
+     "course": "py",
+     "type": "predict",
+     "skill": "py.u01.print",
+     "level": 2,
+     "d0": -1.6,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string",
+      "order"
+     ],
+     "prompt": "What does this show?",
+     "code": "print(\"Good morning\")\nprint(\"Ready to code?\")",
+     "body": {
+      "options": [
+       {
+        "text": "Good morning\nReady to code?",
+        "correct": true,
+        "feedback": "Yes: two prints, two lines, top to bottom."
+       },
+       {
+        "text": "Good morning Ready to code?",
+        "tag": "mc.print.same_line",
+        "hint": "Count the prints."
+       },
+       {
+        "text": "Ready to code?\nGood morning",
+        "tag": "mc.order.any_order",
+        "hint": "Which line comes first?"
+       },
+       {
+        "text": "\"Good morning\"\n\"Ready to code?\"",
+        "tag": "mc.str.quotes_shown",
+        "hint": "Run it in your head and look closely."
+       }
+      ],
+      "output_options": true,
+      "run_after": true
+     },
+     "hints": [
+      "Each print makes its own line."
+     ],
+     "explain": "Two prints, two lines, top to bottom.",
+     "kids": {
+      "prompt": "What will Python say?"
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u01.l1.s03.b",
+     "version": 1,
+     "course": "py",
+     "type": "predict",
+     "skill": "py.u01.print",
+     "level": 2,
+     "d0": -0.9,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string",
+      "order"
+     ],
+     "prompt": "What does this show?",
+     "code": "print(\"Wake up\")\nprint(\"Brush teeth\")\nprint(\"Eat breakfast\")",
+     "body": {
+      "options": [
+       {
+        "text": "Wake up\nBrush teeth\nEat breakfast",
+        "correct": true
+       },
+       {
+        "text": "Wake up Brush teeth Eat breakfast",
+        "tag": "mc.print.same_line"
+       },
+       {
+        "text": "Eat breakfast\nBrush teeth\nWake up",
+        "tag": "mc.order.any_order"
+       },
+       {
+        "text": "\"Wake up\"\n\"Brush teeth\"\n\"Eat breakfast\"",
+        "tag": "mc.str.quotes_shown"
+       }
+      ],
+      "output_options": true,
+      "run_after": true
+     },
+     "hints": [
+      "Three prints. How many lines?"
+     ],
+     "explain": "Three prints, three lines, in order.",
+     "kids": {
+      "prompt": "What will Python say?"
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s04",
+   "beat": "predict",
+   "candidates": [
+    {
+     "id": "py.u01.l1.s04.a",
+     "version": 1,
+     "course": "py",
+     "type": "predict",
+     "skill": "py.u01.strings",
+     "level": 2,
+     "d0": -1.4,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string"
+     ],
+     "prompt": "What does this show?",
+     "code": "print(\"2 + 3\")",
+     "body": {
+      "options": [
+       {
+        "text": "2 + 3",
+        "correct": true,
+        "feedback": "Right: inside quotes it is just text."
+       },
+       {
+        "text": "5",
+        "tag": "mc.str.text_is_evaluated",
+        "hint": "What do quotes mean?"
+       },
+       {
+        "text": "\"2 + 3\"",
+        "tag": "mc.str.quotes_shown"
+       },
+       {
+        "text": "An error",
+        "tag": "mc.str.no_digits_in_text"
+       }
+      ],
+      "output_options": true,
+      "run_after": true
+     },
+     "hints": [
+      "Look at the quotes around 2 + 3."
+     ],
+     "explain": "Inside quotes, Python copies the text exactly.",
+     "kids": {
+      "prompt": "What will Python say?"
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u01.l1.s04.b",
+     "version": 1,
+     "course": "py",
+     "type": "predict",
+     "skill": "py.u01.strings",
+     "level": 2,
+     "d0": -0.7,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string"
+     ],
+     "prompt": "What does this show?",
+     "code": "print(\"9 - 4 = 5\")",
+     "body": {
+      "options": [
+       {
+        "text": "9 - 4 = 5",
+        "correct": true
+       },
+       {
+        "text": "5",
+        "tag": "mc.str.text_is_evaluated"
+       },
+       {
+        "text": "\"9 - 4 = 5\"",
+        "tag": "mc.str.quotes_shown"
+       },
+       {
+        "text": "An error",
+        "tag": "mc.str.no_digits_in_text"
+       }
+      ],
+      "output_options": true,
+      "run_after": true
+     },
+     "hints": [
+      "Everything between the quotes is text."
+     ],
+     "explain": "It's all inside the quotes, so it's text, copied exactly.",
+     "kids": {
+      "prompt": "What will Python say?"
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s05",
+   "beat": "investigate",
+   "candidates": [
+    {
+     "id": "py.u01.l1.s05.a",
+     "version": 1,
+     "course": "py",
+     "type": "read_error",
+     "skill": "py.u01.strings",
+     "level": 2,
+     "d0": -1.2,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string",
+      "error_reading"
+     ],
+     "prompt": "What is wrong?",
+     "code": "print(\"Hello)",
+     "body": {
+      "error": "SyntaxError: unterminated string literal (detected at line 1)",
+      "options": [
+       {
+        "text": "The closing quote is missing",
+        "correct": true,
+        "feedback": "Yes: every opening quote needs a closing one."
+       },
+       {
+        "text": "print needs a capital P",
+        "tag": "mc.syn.case_insensitive",
+        "hint": "Read the error's last words."
+       },
+       {
+        "text": "A semicolon is missing at the end",
+        "tag": "mc.syn.other_language",
+        "hint": "What does 'unterminated' mean?"
+       },
+       {
+        "text": "Hello is not a real word",
+        "tag": "mc.syn.natural_language"
+       }
+      ]
+     },
+     "hints": [
+      "Unterminated means not finished."
+     ],
+     "explain": "The text was opened with a quote but never closed.",
+     "kids": {
+      "prompt": "Python is confused. Why?",
+      "body": {
+       "options": [
+        {
+         "text": "The closing quote is missing",
+         "correct": true
+        },
+        {
+         "text": "print needs a big P",
+         "tag": "mc.syn.case_insensitive"
+        },
+        {
+         "text": "It needs a ; at the end",
+         "tag": "mc.syn.other_language"
+        },
+        {
+         "text": "Hello is not a real word",
+         "tag": "mc.syn.natural_language"
+        }
+       ]
+      }
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u01.l1.s05.b",
+     "version": 1,
+     "course": "py",
+     "type": "read_error",
+     "skill": "py.u01.strings",
+     "level": 2,
+     "d0": -0.5,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string",
+      "error_reading"
+     ],
+     "prompt": "What is wrong?",
+     "code": "print('Good night\")",
+     "body": {
+      "error": "SyntaxError: unterminated string literal (detected at line 1)",
+      "options": [
+       {
+        "text": "The quotes don't match: it opens with ' and ends with \"",
+        "correct": true,
+        "feedback": "Yes: text must open and close with the same kind of quote."
+       },
+       {
+        "text": "print needs a capital P",
+        "tag": "mc.syn.case_insensitive"
+       },
+       {
+        "text": "A semicolon is missing at the end",
+        "tag": "mc.syn.other_language"
+       },
+       {
+        "text": "Good night must be one word",
+        "tag": "mc.syn.natural_language"
+       }
+      ]
+     },
+     "hints": [
+      "Look at the first and the last quote mark."
+     ],
+     "explain": "Single and double quotes both work, but they must match.",
+     "kids": {
+      "prompt": "Python is confused. Why?"
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s06",
+   "beat": "investigate",
+   "candidates": [
+    {
+     "id": "py.u01.l1.s06.a",
+     "version": 1,
+     "course": "py",
+     "type": "parsons",
+     "skill": "py.u01.print",
+     "level": 2,
+     "d0": -1.1,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string",
+      "order"
+     ],
+     "prompt": "Put the lines in order so the robot's steps print from 1 to 3.",
+     "body": {
+      "lines": [
+       "print(\"Step 1: open the box\")",
+       "print(\"Step 2: switch it on\")",
+       "print(\"Step 3: say hello\")"
+      ],
+      "distractors": [
+       {
+        "text": "Print(\"Step 3: say hello\")",
+        "tag": "mc.syn.case_insensitive"
+       }
+      ],
+      "kids_distractors": false,
+      "wrong_order_tag": "mc.order.any_order"
+     },
+     "hints": [
+      "Which step happens first?"
+     ],
+     "explain": "In order, just like a recipe.",
+     "kids": {
+      "prompt": "Tap the lines in order: step 1, then 2, then 3."
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u01.l1.s06.b",
+     "version": 1,
+     "course": "py",
+     "type": "parsons",
+     "skill": "py.u01.print",
+     "level": 2,
+     "d0": -0.5,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string",
+      "order"
+     ],
+     "prompt": "Put the lines in order to make a countdown: 3, 2, 1, Go!",
+     "body": {
+      "lines": [
+       "print(\"3\")",
+       "print(\"2\")",
+       "print(\"1\")",
+       "print(\"Go!\")"
+      ],
+      "distractors": [
+       {
+        "text": "print(Go!)",
+        "tag": "mc.str.missing_quotes"
+       }
+      ],
+      "kids_distractors": false,
+      "wrong_order_tag": "mc.order.any_order"
+     },
+     "hints": [
+      "What does a countdown start with?"
+     ],
+     "explain": "Top to bottom: 3, 2, 1, Go!",
+     "kids": {
+      "prompt": "Tap the lines in order to count down: 3, 2, 1, Go!"
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s07",
+   "beat": "modify",
+   "candidates": [
+    {
+     "id": "py.u01.l1.s07.a",
+     "version": 1,
+     "course": "py",
+     "type": "fill",
+     "skill": "py.u01.print",
+     "level": 3,
+     "d0": -1.0,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string"
+     ],
+     "prompt": "Fill the blank so Python shows Welcome!",
+     "code": "____(\"Welcome!\")",
+     "body": {
+      "bank": [
+       {
+        "text": "print",
+        "correct": true,
+        "feedback": "That's the instruction to show text."
+       },
+       {
+        "text": "Print",
+        "tag": "mc.syn.case_insensitive"
+       },
+       {
+        "text": "say",
+        "tag": "mc.syn.natural_language",
+        "hint": "Look back at the first example."
+       },
+       {
+        "text": "\"print\"",
+        "tag": "mc.str.quotes_shown"
+       }
+      ],
+      "expected_output": "Welcome!"
+     },
+     "hints": [
+      "Which word shows a message?"
+     ],
+     "explain": "print is the instruction to show text.",
+     "kids": {
+      "prompt": "Fill the gap so Python says Welcome!"
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u01.l1.s07.b",
+     "version": 1,
+     "course": "py",
+     "type": "fill",
+     "skill": "py.u01.print",
+     "level": 3,
+     "d0": -0.6,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string",
+      "order"
+     ],
+     "prompt": "Fill the blank so Python shows both lines.",
+     "code": "print(\"Line 1\")\n____(\"Line 2\")",
+     "body": {
+      "bank": [
+       {
+        "text": "print",
+        "correct": true
+       },
+       {
+        "text": "PRINT",
+        "tag": "mc.syn.case_insensitive"
+       },
+       {
+        "text": "show",
+        "tag": "mc.syn.natural_language"
+       },
+       {
+        "text": "\"print\"",
+        "tag": "mc.str.quotes_shown"
+       }
+      ],
+      "expected_output": "Line 1\nLine 2"
+     },
+     "hints": [
+      "The second line needs the same instruction as the first."
+     ],
+     "explain": "Each line that shows something needs its own print.",
+     "kids": {
+      "prompt": "Fill the gap so Python says both lines."
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s08",
+   "beat": "modify",
+   "candidates": [
+    {
+     "id": "py.u01.l1.s08.a",
+     "version": 1,
+     "course": "py",
+     "type": "fix",
+     "skill": "py.u01.strings",
+     "level": 4,
+     "d0": -0.5,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string"
+     ],
+     "prompt": "Fix the bug so it shows: Hello, world",
+     "code": "print(Hello, world)",
+     "body": {
+      "expected_output": "Hello, world",
+      "solution": "print(\"Hello, world\")",
+      "checks": [
+       {
+        "kind": "output"
+       }
+      ],
+      "error_tags": {
+       "NameError": "mc.str.missing_quotes",
+       "unterminated": "mc.str.unclosed_quote",
+       "Print": "mc.syn.case_insensitive"
+      }
+     },
+     "hints": [
+      "What marks text?",
+      "Put quotes before Hello and after world."
+     ],
+     "explain": "Quotes turn words into text. Single quotes work too.",
+     "kids": {
+      "prompt": "Fix it so Python says: Hello, world"
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u01.l1.s08.b",
+     "version": 1,
+     "course": "py",
+     "type": "fix",
+     "skill": "py.u01.strings",
+     "level": 4,
+     "d0": 0.1,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string"
+     ],
+     "prompt": "Fix both bugs so it shows two lines: Have a nice day, then Good luck",
+     "code": "print(\"Have a nice day)\nprint(Good luck)",
+     "body": {
+      "expected_output": "Have a nice day\nGood luck",
+      "solution": "print(\"Have a nice day\")\nprint(\"Good luck\")",
+      "checks": [
+       {
+        "kind": "output"
+       }
+      ],
+      "error_tags": {
+       "NameError": "mc.str.missing_quotes",
+       "unterminated": "mc.str.unclosed_quote",
+       "Print": "mc.syn.case_insensitive"
+      }
+     },
+     "hints": [
+      "Line 1 is missing one quote mark.",
+      "Line 2 has no quotes at all."
+     ],
+     "explain": "Every piece of text needs quotes at both ends.",
+     "kids": {
+      "prompt": "Fix both lines so Python says: Have a nice day, then Good luck"
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s09",
+   "beat": "modify",
+   "candidates": [
+    {
+     "id": "py.u01.l1.s09.a",
+     "version": 1,
+     "course": "py",
+     "type": "modify",
+     "skill": "py.u01.print",
+     "level": 4,
+     "d0": -0.3,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string"
+     ],
+     "prompt": "Change the code so it shows See you tomorrow instead.",
+     "code": "print(\"See you soon\")",
+     "body": {
+      "expected_output": "See you tomorrow",
+      "solution": "print(\"See you tomorrow\")",
+      "checks": [
+       {
+        "kind": "output"
+       }
+      ],
+      "error_tags": {
+       "NameError": "mc.str.missing_quotes",
+       "unterminated": "mc.str.unclosed_quote",
+       "Print": "mc.syn.case_insensitive",
+       "too_many_lines": "mc.gen.misread_goal"
+      }
+     },
+     "hints": [
+      "Only the words inside the quotes need to change."
+     ],
+     "explain": "Only the text changed; the instruction stayed.",
+     "kids": {
+      "prompt": "Change it so Python says See you tomorrow."
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u01.l1.s09.b",
+     "version": 1,
+     "course": "py",
+     "type": "modify",
+     "skill": "py.u01.print",
+     "level": 4,
+     "d0": 0.3,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string",
+      "order"
+     ],
+     "prompt": "Add one line so it shows Step 1, Step 2, Step 3 in order.",
+     "code": "print(\"Step 1\")\nprint(\"Step 3\")",
+     "body": {
+      "expected_output": "Step 1\nStep 2\nStep 3",
+      "solution": "print(\"Step 1\")\nprint(\"Step 2\")\nprint(\"Step 3\")",
+      "checks": [
+       {
+        "kind": "output"
+       }
+      ],
+      "error_tags": {
+       "NameError": "mc.str.missing_quotes",
+       "unterminated": "mc.str.unclosed_quote",
+       "Print": "mc.syn.case_insensitive",
+       "wrong_order": "mc.order.any_order"
+      }
+     },
+     "hints": [
+      "Where does Step 2 belong: top, middle or bottom?"
+     ],
+     "explain": "Python runs lines top to bottom, so Step 2 goes in the middle.",
+     "kids": {
+      "prompt": "Add a line so Python says Step 1, Step 2, Step 3."
+     },
+     "status": "published"
+    }
+   ]
+  },
+  {
+   "slot": "s10",
+   "beat": "make",
+   "candidates": [
+    {
+     "id": "py.u01.l1.s10.a",
+     "version": 1,
+     "course": "py",
+     "type": "write",
+     "skill": "py.u01.print",
+     "level": 5,
+     "d0": 0.0,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string"
+     ],
+     "prompt": "Write one line of code that shows: Hello, Python",
+     "code": "",
+     "body": {
+      "expected_output": "Hello, Python",
+      "solution": "print(\"Hello, Python\")",
+      "checks": [
+       {
+        "kind": "output"
+       },
+       {
+        "kind": "print_count",
+        "n": 1
+       }
+      ],
+      "error_tags": {
+       "NameError": "mc.str.missing_quotes",
+       "unterminated": "mc.str.unclosed_quote",
+       "Print": "mc.syn.case_insensitive"
+      }
+     },
+     "hints": [
+      "Start with print, then brackets, then quotes."
+     ],
+     "explain": "You wrote a whole Python program!",
+     "kids": {
+      "prompt": "Write a line that makes Python say: Hello, Python"
+     },
+     "status": "published"
+    },
+    {
+     "id": "py.u01.l1.s10.b",
+     "version": 1,
+     "course": "py",
+     "type": "write",
+     "skill": "py.u01.print",
+     "level": 5,
+     "d0": 0.6,
+     "modes": [
+      "adults",
+      "kids"
+     ],
+     "concepts": [
+      "print",
+      "string",
+      "order"
+     ],
+     "prompt": "Write a program that shows two lines: Hi, I'm learning Python and then This is line 2",
+     "code": "",
+     "body": {
+      "expected_output": "Hi, I'm learning Python\nThis is line 2",
+      "solution": "print(\"Hi, I'm learning Python\")\nprint(\"This is line 2\")",
+      "checks": [
+       {
+        "kind": "output"
+       },
+       {
+        "kind": "print_count",
+        "n": 2
+       }
+      ],
+      "error_tags": {
+       "NameError": "mc.str.missing_quotes",
+       "unterminated": "mc.str.unclosed_quote",
+       "Print": "mc.syn.case_insensitive",
+       "wrong_order": "mc.order.any_order"
+      }
+     },
+     "hints": [
+      "You need two print lines.",
+      "Use double quotes, because the text has an apostrophe in I'm."
+     ],
+     "explain": "Two prints, two lines, in the right order.",
+     "kids": {
+      "prompt": "Write two lines so Python says: Hi, I'm learning Python and then This is line 2"
+     },
+     "status": "published"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "course": "py",
+ "content_version": "0.3.0",
+ "title": "Python",
+ "units": [
+  {
+   "id": "py.u01",
+   "n": 1,
+   "title": "Talk to Python",
+   "kids_title": "Make Python talk",
+   "badge": "badge-print",
+   "lessons": [
+    "py.u01.l1"
+   ],
+   "skills": {
+    "py.u01.print": "Show text with print (one line per print, top to bottom)",
+    "py.u01.strings": "Text in quotes"
+   },
+   "concepts_allowed": [
+    "print",
+    "string",
+    "order",
+    "comment",
+    "error_reading",
+    "case"
+   ]
+  },
+  {
+   "id": "py.u02",
+   "n": 2,
+   "title": "Variables",
+   "kids_title": "Name tags",
+   "badge": "badge-variables",
+   "lessons": [
+    "py.u02.l1"
+   ],
+   "skills": {
+    "py.u02.assign": "Make a variable with =",
+    "py.u02.reassign": "Move a variable to a new value"
+   },
+   "concepts_allowed": [
+    "variable",
+    "assign",
+    "reassign"
+   ]
+  }
+ ],
+ "later_concepts": {
+  "py.u03": [
+   "number_math",
+   "arithmetic"
+  ],
+  "py.u04": [
+   "input"
+  ],
+  "py.u05": [
+   "compare",
+   "if",
+   "bool"
+  ],
+  "py.u06": [
+   "loop"
+  ],
+  "py.u07": [
+   "list"
+  ],
+  "py.u08": [
+   "function"
+  ]
+ }
+}

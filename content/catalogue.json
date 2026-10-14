@@ -1,0 +1,258 @@
+{
+ "version": "0.3.0",
+ "misconceptions": {
+  "mc.print.same_line": {
+   "scope": "py",
+   "belief": "Several print lines all show on one line.",
+   "correct_model": "Each print starts its own new line.",
+   "feedback": {
+    "adults": "Each print starts a new line.",
+    "kids": "Every print gets its own line!"
+   },
+   "hint": "Count the prints.",
+   "review_skill": "py.u01.print"
+  },
+  "mc.order.any_order": {
+   "scope": "universal",
+   "belief": "The computer can run lines in any order.",
+   "correct_model": "Lines run one by one, top to bottom.",
+   "feedback": {
+    "adults": "Python reads from the top down, like a recipe.",
+    "kids": "Python goes from the top line to the bottom line."
+   },
+   "hint": "Which line comes first?",
+   "review_skill": "py.u01.print"
+  },
+  "mc.str.quotes_shown": {
+   "scope": "py",
+   "belief": "The quotes are printed too.",
+   "correct_model": "Quotes mark where text starts and ends; they are not shown.",
+   "feedback": {
+    "adults": "The quotes mark the text; print doesn't show them.",
+    "kids": "The quotes are just the wrapping. They don't show up."
+   },
+   "hint": "Look closely at what print shows.",
+   "review_skill": "py.u01.strings"
+  },
+  "mc.str.text_is_evaluated": {
+   "scope": "py",
+   "belief": "Python does maths inside quotes.",
+   "correct_model": "Inside quotes everything is plain text, copied exactly.",
+   "feedback": {
+    "adults": "Inside quotes, Python doesn't do maths; it copies the text.",
+    "kids": "Inside quotes, Python just copies the letters and numbers."
+   },
+   "hint": "What do quotes mean?",
+   "review_skill": "py.u01.strings"
+  },
+  "mc.str.no_digits_in_text": {
+   "scope": "py",
+   "belief": "Text can't contain digits or symbols.",
+   "correct_model": "Text can hold any characters, digits and symbols too.",
+   "feedback": {
+    "adults": "Text can hold any characters, digits too.",
+    "kids": "Text can have numbers in it. That's fine!"
+   },
+   "hint": "Can a message contain a number?",
+   "review_skill": "py.u01.strings"
+  },
+  "mc.str.missing_quotes": {
+   "scope": "py",
+   "belief": "Words can be printed without quotes.",
+   "correct_model": "Without quotes, Python reads a word as a name, not text.",
+   "feedback": {
+    "adults": "Without quotes, Python looks for a name instead of text.",
+    "kids": "Put quotes around words so Python knows they are text."
+   },
+   "hint": "What marks text?",
+   "review_skill": "py.u01.strings"
+  },
+  "mc.str.unclosed_quote": {
+   "scope": "py",
+   "belief": "One quote mark is enough.",
+   "correct_model": "Text needs an opening and a matching closing quote.",
+   "feedback": {
+    "adults": "Every opening quote needs a matching closing one.",
+    "kids": "Quotes come in pairs: one at the start, one at the end."
+   },
+   "hint": "Count the quote marks.",
+   "review_skill": "py.u01.strings"
+  },
+  "mc.syn.case_insensitive": {
+   "scope": "universal",
+   "belief": "Capital letters don't matter.",
+   "correct_model": "Print and print are different names; capitals matter.",
+   "feedback": {
+    "adults": "Capitals matter: Print is not print.",
+    "kids": "Python cares about big and small letters. Use print."
+   },
+   "hint": "Compare the letters carefully.",
+   "review_skill": "py.u01.print"
+  },
+  "mc.syn.other_language": {
+   "scope": "universal",
+   "belief": "Python uses the same symbols as other languages (semicolons, colons for values).",
+   "correct_model": "Python has its own rules; it doesn't need semicolons and uses = to name values.",
+   "feedback": {
+    "adults": "Python has its own rules; that symbol isn't needed here.",
+    "kids": "Python doesn't use that symbol here."
+   },
+   "hint": "What does the error message say?",
+   "review_skill": "py.u01.strings"
+  },
+  "mc.syn.natural_language": {
+   "scope": "universal",
+   "belief": "Python understands English words and checks spelling.",
+   "correct_model": "Python only knows its own words; it never checks the spelling inside text.",
+   "feedback": {
+    "adults": "Python only knows its own words, like print, and doesn't check spelling inside text.",
+    "kids": "Python only knows its own special words, like print."
+   },
+   "hint": "Look back at the first example.",
+   "review_skill": "py.u01.print"
+  },
+  "mc.gen.misread_goal": {
+   "scope": "universal",
+   "belief": "Any change that runs is fine.",
+   "correct_model": "The task asks for one exact result.",
+   "feedback": {
+    "adults": "Read the task again: it asks for an exact result.",
+    "kids": "Read the task again. What should it show?"
+   },
+   "hint": "How many lines should show?",
+   "review_skill": "py.u01.print"
+  },
+  "mc.var.name_vs_value": {
+   "scope": "py",
+   "belief": "A name without quotes prints the name itself (or a name in quotes prints its value).",
+   "correct_model": "Without quotes it is a name and Python shows its value; in quotes it is text.",
+   "feedback": {
+    "adults": "Without quotes it's a name, so Python shows its value. In quotes it's just text.",
+    "kids": "No quotes: Python shows what the name is stuck on. Quotes: it shows the word."
+   },
+   "hint": "Is it in quotes or not?",
+   "review_skill": "py.u02.assign"
+  },
+  "mc.var.prints_statement": {
+   "scope": "py",
+   "belief": "An assignment line shows something on screen.",
+   "correct_model": "Assignment only sticks a name on a value; only print shows anything.",
+   "feedback": {
+    "adults": "The first line sets the tag; only print shows anything.",
+    "kids": "Making a variable doesn't show anything. Only print shows things."
+   },
+   "hint": "Which line has print?",
+   "review_skill": "py.u02.assign"
+  },
+  "mc.var.needs_declaration": {
+   "scope": "universal",
+   "belief": "A variable must be set up or declared before =.",
+   "correct_model": "In Python, the = line creates the name. No setup needed.",
+   "feedback": {
+    "adults": "In Python, using = creates the name. No setup needed.",
+    "kids": "Using = makes the name. That's all you need!"
+   },
+   "hint": "What does = do?",
+   "review_skill": "py.u02.assign"
+  },
+  "mc.var.first_value_sticks": {
+   "scope": "universal",
+   "belief": "A variable keeps its first value forever.",
+   "correct_model": "A new assignment moves the name to the new value.",
+   "feedback": {
+    "adults": "The newer line moves the tag to a new value.",
+    "kids": "The tag moved! It's on the newest value now."
+   },
+   "hint": "What does the later line do to the tag?",
+   "review_skill": "py.u02.reassign"
+  },
+  "mc.var.holds_history": {
+   "scope": "universal",
+   "belief": "A variable keeps every value it was ever given.",
+   "correct_model": "A name points at one value at a time; a new assignment moves the name.",
+   "feedback": {
+    "adults": "A tag is on one value at a time, not a list of old ones.",
+    "kids": "A tag can only be on one thing at a time."
+   },
+   "hint": "How many values can one tag be on?",
+   "review_skill": "py.u02.reassign"
+  },
+  "mc.var.assign_adds": {
+   "scope": "universal",
+   "belief": "Assigning again adds or joins the new value to the old one.",
+   "correct_model": "= moves the tag; it never adds or joins.",
+   "feedback": {
+    "adults": "= moves the tag; it doesn't add or join.",
+    "kids": "= just moves the tag. Nothing gets added."
+   },
+   "hint": "Is there anything here that adds?",
+   "review_skill": "py.u02.reassign"
+  },
+  "mc.var.linked_names": {
+   "scope": "universal",
+   "belief": "After b = a, b follows a forever.",
+   "correct_model": "b = a sticks b on a's value at that moment; moving a later doesn't move b.",
+   "feedback": {
+    "adults": "b = a sticks b on a's value at that moment, not on a.",
+    "kids": "b got a's value at that moment. Moving a later doesn't move b."
+   },
+   "hint": "Draw the tags after each line.",
+   "review_skill": "py.u02.reassign"
+  },
+  "mc.var.quotes_around_name": {
+   "scope": "py",
+   "belief": "A variable name should go in quotes.",
+   "correct_model": "Quotes make text; a name is used without quotes.",
+   "feedback": {
+    "adults": "Quotes would make it text, not the variable.",
+    "kids": "Quotes turn it into a word. Take them off to use the tag."
+   },
+   "hint": "What do quotes do?",
+   "review_skill": "py.u02.assign"
+  },
+  "mc.var.cannot_print": {
+   "scope": "py",
+   "belief": "Variables can't be printed.",
+   "correct_model": "print can show any variable's value.",
+   "feedback": {
+    "adults": "print can show any variable's value.",
+    "kids": "print can show what any tag is stuck on."
+   },
+   "hint": "Look back at the first example.",
+   "review_skill": "py.u02.assign"
+  },
+  "mc.var.used_before_made": {
+   "scope": "universal",
+   "belief": "A name can be used before the line that makes it.",
+   "correct_model": "Lines run top to bottom, so a name must be made before it's used.",
+   "feedback": {
+    "adults": "Lines run top to bottom, so the name must exist before it's used.",
+    "kids": "Python reads top to bottom. Make the tag first, then use it."
+   },
+   "hint": "Which line runs first?",
+   "review_skill": "py.u02.assign"
+  },
+  "mc.var.bypasses_variable": {
+   "scope": "py",
+   "belief": "Typing the text directly is the same as using the variable.",
+   "correct_model": "The task asks you to use the variable's name inside print.",
+   "feedback": {
+    "adults": "Use the variable's name inside print, not the text itself.",
+    "kids": "Use the tag's name inside print."
+   },
+   "hint": "Which name holds the value?",
+   "review_skill": "py.u02.assign"
+  },
+  "mc.err.points_to_cause": {
+   "scope": "universal",
+   "belief": "The error is always somewhere other than the line it names.",
+   "correct_model": "Read the error: it names the line and the name it couldn't find.",
+   "feedback": {
+    "adults": "Read the error: it names the exact line and name.",
+    "kids": "The error message tells you which line. Read it!"
+   },
+   "hint": "Which line does the error name?",
+   "review_skill": "py.u02.assign"
+  }
+ }
+}
